@@ -2,12 +2,16 @@ package com.entity;
 
 import java.util.Objects;
 
+
 public class Rectangle {
 
     private Point a;
     private Point b;
     private Point c;
     private Point d;
+
+    public Rectangle() {
+    }
 
     public Rectangle(Point a, Point b, Point c, Point d) {
         this.a = a;
@@ -16,20 +20,11 @@ public class Rectangle {
         this.d = d;
     }
 
-    public double lengthSide(Point a, Point b){
-        return Math.sqrt(Math.pow((a.getX() - b.getX()), 2)
-                + Math.pow((a.getY() - b.getY()), 2));
-    }
 
-    public double perimeter(){
-        return lengthSide(a,b)+lengthSide(b,c)+lengthSide(c,d)+lengthSide(d,a);
-    }
 
-    public double area(){
-        double p=Math.abs((a.getX()*b.getY()-a.getY()*b.getX())+(b.getX()*c.getY()-b.getY()*c.getX())+
-                (c.getX()*d.getY()-c.getY()*d.getX())+(d.getX()*a.getY()-d.getY()*a.getX()));
-        return p/2;
-    }
+
+
+
 
     @Override
     public String toString() {
@@ -57,6 +52,8 @@ public class Rectangle {
     public int hashCode() {
         return Objects.hash(a, b, c, d);
     }
+
+
 
     public Point getA() {
         return a;
@@ -89,4 +86,7 @@ public class Rectangle {
     public void setD(Point d) {
         this.d = d;
     }
+
+
+
 }

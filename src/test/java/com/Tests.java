@@ -14,6 +14,9 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 
+import  com.Formula.Calculate;
+
+
 public class Tests {
 
     @AfterClass
@@ -34,12 +37,20 @@ public class Tests {
     @Test
     public void RectanglePerimeterSuccessful() {
         Rectangle rectangle = new Rectangle(new Point(-2.0, -1.0), new Point(-2.0, 3.0), new Point(4.0, 3.0), new Point(4.0, -1.0));
-        Assert.assertEquals(rectangle.perimeter(), 20.0);
+        Assert.assertEquals(new Calculate().perimeter(rectangle), 20.0);
     }
 
     @Test
     public void RectangleAreaSuccessful() {
-        Rectangle rectangle = new Rectangle(new Point(-2.0, -1.0), new Point(-2.0, 3.0), new Point(4.0, 3.0), new Point(4.0, -1.0));
-        Assert.assertEquals(rectangle.area(), 24.0);
+        Rectangle rec = new Rectangle(new Point(-2.0, -1.0), new Point(-2.0, 3.0), new Point(4.0, 3.0), new Point(4.0, -1.0));
+        Assert.assertEquals(new Calculate().area(rec.getA(), rec.getB(), rec.getC(), rec.getD()), 24.0);
     }
+
+    @Test
+    public void RightRectangleSuccessful() {
+        Rectangle rec = new Rectangle(new Point(-2.0, -1.0), new Point(-2.0, 3.0), new Point(4.0, 3.0), new Point(4.0, -1.0));
+        Assert.assertEquals(new RectangleValidator().checkRightAngle(rec.getA(), rec.getB(), rec.getC()), true);
+    }
+
+
 }
